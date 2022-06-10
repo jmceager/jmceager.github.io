@@ -1,7 +1,7 @@
 /* import font aswesome icons and google font */
 @import url(https://use.fontawesome.com/releases/v6.0.0/css/all.css);
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:300,400,500,600,700,800,900');
 
 body {
   font-family: "Source Sans Pro", "Open Sans", Arial, sans-serif;
@@ -11,7 +11,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family:"Montserrat", sans-serif;
 }
 
+h1, h2 {
+  font-weight: 700;
+}
+
+h3, h4 {
+  font-weight: 600;
+}
+
+h5, h6 {
+  font-weight: 500;
+}
+
 /* sidebar stuff */
+
 
 .sidebar {
     margin: 0;
@@ -21,21 +34,57 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     height: 100%;
     overflow: auto;
+    display: block;
+}
+
+.sidebar .prof-pic {
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: grayscale(100%);
+}
+
+.sidebar h3, h5{
+  text-align: center;
+  line-height: .66;
 }
 
 .sidebar a {
-    display: block;
     color: black;
+    display: block;
     padding: 16px;
     text-decoration: none;
-  }
+}
   
-  .sidebar a.active {
+.sidebar a.active {
     background-color: #04AA6D;
     color: white;
-  }
+}
   
-  .sidebar a:hover:not(.active) {
+.sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
   }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
